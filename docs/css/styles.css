@@ -456,11 +456,57 @@ textarea {
 }
 
 @media (max-width: 720px) {
+  .promo-bar {
+    font-size: 0.6rem;
+    letter-spacing: 0.12rem;
+  }
+
+  .navbar {
+    gap: 12px;
+  }
+
   .nav-links {
     display: none;
   }
 
+  .nav-actions {
+    gap: 8px;
+  }
+
   .hero {
-    padding-top: 40px;
+    padding-top: 32px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 7vw, 3rem);
+  }
+
+  .chip-list {
+    margin-bottom: 18px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .product-card .media {
+    height: 200px;
+  }
+
+  .card-body {
+    padding: 14px;
+  }
+
+  .card .actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
   }
 }
