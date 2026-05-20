@@ -19,7 +19,7 @@ async function loadProducts() {
     return cachedProducts;
   }
 
-  const response = await fetch("data/products.json?v=20260520");
+  const response = await fetch("data/products.json?v=20260520-2");
   const baseProducts = await response.json();
   const adminOverride = getAdminProducts();
   cachedProducts = adminOverride || baseProducts;
