@@ -8,27 +8,20 @@ A static clothing site with catalog filters, cart, wishlist, and WhatsApp orderi
 - Catalog filters and product detail pages
 - Cart and wishlist stored locally in the browser
 - WhatsApp order links
-- Admin editor for products with JSON export
+- Product catalog powered by JSON data
 
 ## Important limitations
 
-- This is a static site. It cannot truly secure admin access.
-- Admin edits are exported as a JSON file that you upload to the site.
+- This is a static site. Product changes must be made by editing JSON files.
 
 ## Configure WhatsApp number
 
 Edit `whatsappNumber` in [docs/js/config.js](docs/js/config.js). Use digits only (no +).
 
-## Admin key
-
-Change `adminKey` in [docs/js/config.js](docs/js/config.js).
-
 ## Update products
 
-1. Open the Admin page and unlock with the admin key.
-2. Add or edit products.
-3. Click Export JSON to download a new products file.
-4. Replace [docs/data/products.json](docs/data/products.json) with the new file and push to GitHub Pages.
+1. Edit [docs/data/products.json](docs/data/products.json).
+2. Save and push to GitHub Pages.
 
 ## GitHub Pages launch (recommended)
 

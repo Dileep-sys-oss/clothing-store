@@ -288,6 +288,7 @@ header {
   border-radius: var(--radius) var(--radius) 0 0;
   background: linear-gradient(130deg, #ffb320 0%, #ff3f6c 40%, #1f1e24 100%);
   position: relative;
+  display: block;
 }
 
 .product-card .media::after {
@@ -296,6 +297,29 @@ header {
   inset: 12px;
   border-radius: var(--radius-sm);
   border: 1px dashed rgba(255, 255, 255, 0.55);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.gallery-thumb {
+  height: 72px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.gallery-thumb.active,
+.gallery-thumb:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
 }
 
 .card-body {
@@ -405,6 +429,23 @@ textarea {
   padding: 12px 14px;
   margin-bottom: 16px;
   font-size: 0.95rem;
+}
+
+.image-preview {
+  min-height: 140px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Futura", "Gill Sans", "Trebuchet MS", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
 }
 
 .is-hidden {

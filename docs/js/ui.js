@@ -10,9 +10,8 @@ function mediaStyle(seed) {
 }
 
 function resolveMedia(product) {
-  return product.image
-    ? `url('${product.image}') center/cover`
-    : mediaStyle(product.id);
+  const image = product.images?.[0] || product.image;
+  return image ? `url('${image}') center/cover` : mediaStyle(product.id);
 }
 
 async function loadProducts() {
@@ -37,7 +36,7 @@ function renderProductCard(product, options = {}) {
   const card = document.createElement("div");
   card.className = "card product-card reveal";
   card.innerHTML = `
-    <div class="media" style="background: ${resolveMedia(product)}"></div>
+    <a class="media" href="product.html?id=${product.id}" style="background: ${resolveMedia(product)}"></a>
     <div class="card-body">
       <div class="brand">${product.brand}</div>
       <h3>${product.name}</h3>
@@ -50,7 +49,6 @@ function renderProductCard(product, options = {}) {
         <span class="price">${formatPrice(product.price)}</span>
       </div>
       <div class="actions">
-        <a class="button ghost" href="product.html?id=${product.id}">View</a>
         <button class="button primary" data-add-cart="${product.id}">Add to cart</button>
         ${options.showWishlist ? `<button class="button secondary" data-add-wishlist="${product.id}">Wishlist</button>` : ""}
         <a class="button secondary" data-order="${product.id}" href="#">WhatsApp</a>

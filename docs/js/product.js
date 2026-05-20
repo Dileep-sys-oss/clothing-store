@@ -11,9 +11,20 @@ async function loadProduct() {
     return;
   }
 
+  const gallery = product.images?.length ? product.images : [product.image].filter(Boolean);
+  const mainImage = gallery[0] || "";
+
   productDetail.innerHTML = `
     <div class="card">
-      <div class="media" style="height: 320px; background: ${resolveMedia(product)}"></div>
+      <div id="product-main" class="media" style="height: 360px; background: ${mainImage ? `url('${mainImage}') center/cover` : resolveMedia(product)}"></div>
+      <div class="gallery" id="product-gallery">
+        ${gallery
+          .map(
+            (image, index) =>
+              `<button class="gallery-thumb${index === 0 ? " active" : ""}" data-image="${image}" style="background-image: url('${image}')"></button>`
+          )
+          .join("")}
+      </div>
     </div>
     <div class="card">
       <h2>${product.name}</h2>
@@ -27,6 +38,21 @@ async function loadProduct() {
       </div>
     </div>
   `;
+
+  const galleryEl = document.getElementById("product-gallery");
+  const mainEl = document.getElementById("product-main");
+  if (galleryEl) {
+    galleryEl.querySelectorAll("[data-image]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const image = button.dataset.image;
+        mainEl.style.background = `url('${image}') center/cover`;
+        galleryEl.querySelectorAll(".gallery-thumb").forEach((el) => {
+          el.classList.remove("active");
+        });
+        button.classList.add("active");
+      });
+    });
+  }
 
   document.getElementById("add-cart").addEventListener("click", () => {
     const cart = getCart();
