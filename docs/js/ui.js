@@ -51,7 +51,7 @@ function renderProductCard(product, options = {}) {
       <div class="actions">
         <button class="button primary" data-add-cart="${product.id}">Add to cart</button>
         ${options.showWishlist ? `<button class="button secondary" data-add-wishlist="${product.id}">Wishlist</button>` : ""}
-        <a class="button secondary" data-order="${product.id}" href="#">WhatsApp</a>
+        <a class="button secondary" data-order="${product.id}" href="#"><span class="wa-inline">WhatsApp</span></a>
       </div>
     </div>
   `;
@@ -113,4 +113,48 @@ function buildWhatsAppLink(items, products) {
   return `https://wa.me/${EMBO_CONFIG.whatsappNumber}?text=${encoded}`;
 }
 
+function enhanceWhatsAppText(root = document.body) {
+  if (!root) {
+    return;
+  }
+
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || parent.closest(".wa-inline") || parent.closest("script, style")) {
+        return NodeFilter.FILTER_REJECT;
+      }
+      return node.nodeValue?.includes("WhatsApp")
+        ? NodeFilter.FILTER_ACCEPT
+        : NodeFilter.FILTER_REJECT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) {
+    nodes.push(walker.currentNode);
+  }
+
+  nodes.forEach((node) => {
+    const parts = node.nodeValue.split("WhatsApp");
+    const fragment = document.createDocumentFragment();
+    parts.forEach((part, index) => {
+      if (part) {
+        fragment.appendChild(document.createTextNode(part));
+      }
+      if (index < parts.length - 1) {
+        const span = document.createElement("span");
+        span.className = "wa-inline";
+        span.textContent = "WhatsApp";
+        fragment.appendChild(span);
+      }
+    });
+    node.parentNode.replaceChild(fragment, node);
+  });
+}
+
 refreshCounts();
+
+document.addEventListener("DOMContentLoaded", () => {
+  enhanceWhatsAppText();
+});

@@ -34,7 +34,7 @@ async function loadProduct() {
       <div class="actions">
         <button class="button primary" id="add-cart">Add to cart</button>
         <button class="button secondary" id="add-wishlist">Wishlist</button>
-        <a class="button secondary" id="order-whatsapp">Order on WhatsApp</a>
+        <a class="button secondary" id="order-whatsapp">Order on <span class="wa-inline">WhatsApp</span></a>
       </div>
     </div>
   `;
