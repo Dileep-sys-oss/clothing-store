@@ -21,7 +21,7 @@ async function loadWishlist() {
           <p>${product.brand}</p>
           <p>${formatPrice(product.price)}</p>
           <div class="actions">
-            <a class="button secondary" href="/product.html?id=${product.id}">View</a>
+            <a class="button secondary" href="product.html?id=${product.id}">View</a>
             <button class="button primary" data-remove="${product.id}">Remove</button>
           </div>
         </div>

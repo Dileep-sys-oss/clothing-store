@@ -8,7 +8,7 @@
     "color": "Sand",
     "size": "M",
     "rating": 4.6,
-    "image": "/images/product-1.svg",
+    "image": "images/product-1.svg",
     "description": "Breezy linen co-ord with a sculpted waist and wide-leg silhouette.",
     "tags": "linen,coord,summer"
   },
@@ -21,7 +21,7 @@
     "color": "Black",
     "size": "L",
     "rating": 4.4,
-    "image": "/images/product-2.svg",
+    "image": "images/product-2.svg",
     "description": "Structured utility jacket with tonal stitching and matte hardware.",
     "tags": "jacket,utility,street"
   },
@@ -34,7 +34,7 @@
     "color": "Crimson",
     "size": "S",
     "rating": 4.7,
-    "image": "/images/product-3.svg",
+    "image": "images/product-3.svg",
     "description": "Knife-pleat midi skirt with a fluid shine and hidden side zip.",
     "tags": "skirt,pleat,occasion"
   },
@@ -47,7 +47,7 @@
     "color": "Olive",
     "size": "M",
     "rating": 4.3,
-    "image": "/images/product-4.svg",
+    "image": "images/product-4.svg",
     "description": "Textured knit polo with ribbed collar and contrast piping.",
     "tags": "polo,knit,casual"
   },
@@ -60,7 +60,7 @@
     "color": "Emerald",
     "size": "M",
     "rating": 4.8,
-    "image": "/images/product-5.svg",
+    "image": "images/product-5.svg",
     "description": "Wrap dress with soft drape and subtle sheen for evening looks.",
     "tags": "dress,wrap,evening"
   },
@@ -73,7 +73,7 @@
     "color": "Charcoal",
     "size": "M",
     "rating": 4.2,
-    "image": "/images/product-6.svg",
+    "image": "images/product-6.svg",
     "description": "Relaxed cargo pants with articulated knees and hidden pockets.",
     "tags": "pants,cargo,street"
   }

@@ -20,7 +20,7 @@ async function loadProducts() {
     return cachedProducts;
   }
 
-  const response = await fetch("/data/products.json");
+  const response = await fetch("data/products.json");
   const baseProducts = await response.json();
   const adminOverride = getAdminProducts();
   cachedProducts = adminOverride || baseProducts;
@@ -51,7 +51,7 @@ function renderProductCard(product, options = {}) {
         <span class="rating">${product.rating} rating</span>
       </div>
       <div class="actions">
-        <a class="button ghost" href="/product.html?id=${product.id}">View</a>
+        <a class="button ghost" href="product.html?id=${product.id}">View</a>
         <button class="button primary" data-add-cart="${product.id}">Add to cart</button>
         ${options.showWishlist ? `<button class="button secondary" data-add-wishlist="${product.id}">Wishlist</button>` : ""}
         <a class="button secondary" data-order="${product.id}" href="#">WhatsApp</a>
