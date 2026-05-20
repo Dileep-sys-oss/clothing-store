@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EMBO | Cart</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container navbar">
+        <a class="logo" href="/">EMBO</a>
+        <nav class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/catalog.html">Catalog</a>
+          <a class="nav-link" href="/wishlist.html">Wishlist</a>
+          <a class="nav-link active" href="/cart.html">Cart</a>
+          <a class="nav-link" href="/admin.html">Admin</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="nav-link" href="/wishlist.html">Wishlist <span id="wishlist-count" class="badge">0</span></a>
+          <a class="nav-link" href="/cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding: 40px 0;">
+      <section class="form-card">
+        <h2 class="section-title">Your cart</h2>
+        <div id="cart-list"></div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; flex-wrap: wrap; gap: 12px;">
+          <strong id="cart-total">Total: INR 0</strong>
+          <button class="button primary" id="cart-whatsapp">Order on WhatsApp</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/store.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/cart.js"></script>
+  </body>
+</html>
