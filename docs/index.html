@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <div class="promo-bar">
+      <div class="container">New drops every Friday + free WhatsApp ordering</div>
+    </div>
     <header>
       <div class="container navbar">
         <a class="logo" href="/">EMBO</a>
-        <nav class="nav-links">
-          <a class="nav-link active" href="/">Home</a>
-          <a class="nav-link" href="/catalog.html">Catalog</a>
-          <a class="nav-link" href="/wishlist.html">Wishlist</a>
-          <a class="nav-link" href="/cart.html">Cart</a>
-          <a class="nav-link" href="/admin.html">Admin</a>
-        </nav>
+        <div class="nav-center">
+          <nav class="nav-links">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="/catalog.html">Catalog</a>
+            <a class="nav-link" href="/wishlist.html">Wishlist</a>
+            <a class="nav-link" href="/cart.html">Cart</a>
+            <a class="nav-link" href="/admin.html">Admin</a>
+          </nav>
+          <div class="search-bar">
+            <span>Search</span>
+            <input type="text" placeholder="Search styles, brands" />
+          </div>
+        </div>
         <div class="nav-actions">
           <a class="nav-link" href="/wishlist.html">Wishlist <span id="wishlist-count" class="badge">0</span></a>
           <a class="nav-link" href="/cart.html">Cart <span id="cart-count" class="badge">0</span></a>
@@ -27,43 +36,43 @@
     <main class="container">
       <section class="hero">
         <div class="reveal">
-          <h1>Curated street and studio fashion.</h1>
+          <h1>Curated fashion for bold everyday looks.</h1>
           <p>
-            Build your capsule with elevated basics, bold silhouettes, and seasonal drops.
-            Tap any item to order directly on WhatsApp.
+            Build your capsule with elevated essentials, elevated textures, and instant
+            WhatsApp ordering. Inspired by the energy of the biggest fashion marketplaces.
           </p>
-          <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+          <div class="chip-list">
+            <span class="chip">New In</span>
+            <span class="chip">Best Sellers</span>
+            <span class="chip">Street Edit</span>
+            <span class="chip">Festive</span>
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
             <a class="button primary" href="/catalog.html">Shop the catalog</a>
-            <a class="button secondary" href="/wishlist.html">Save edits</a>
+            <a class="button ghost" href="/wishlist.html">Save edits</a>
           </div>
         </div>
-        <div class="hero-card reveal delay-2">
-          <h3>Drop highlights</h3>
-          <p>Limited looks and capsule collections for the new season.</p>
-          <div class="stat-grid" style="margin-top: 16px;">
-            <div class="stat">
-              <strong>48</strong>
-              <p>New arrivals</p>
-            </div>
-            <div class="stat">
-              <strong>12</strong>
-              <p>Style capsules</p>
-            </div>
-            <div class="stat">
-              <strong>6</strong>
-              <p>Exclusive collabs</p>
-            </div>
+        <div class="hero-media reveal delay-2">
+          <div>
+            <h3>EMBO Studio Drop</h3>
+            <p>Limited capsule with modern cuts, vibrant tones, and premium fabrics.</p>
+          </div>
+          <div>
+            <p>Launches weekly. Tap to shop.</p>
+            <a class="button primary" href="/catalog.html">Explore drops</a>
           </div>
         </div>
       </section>
 
       <section>
         <h2 class="section-title">Trending picks</h2>
+        <p class="section-subtitle">Fresh edits with high demand and limited stock.</p>
         <div id="home-products" class="grid"></div>
       </section>
 
       <section>
         <h2 class="section-title">Style capsules</h2>
+        <p class="section-subtitle">Shop complete outfits curated by color story.</p>
         <div class="grid">
           <div class="card reveal">
             <div class="media"></div>

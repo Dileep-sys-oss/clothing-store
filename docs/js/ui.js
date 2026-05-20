@@ -27,18 +27,35 @@ async function loadProducts() {
   return cachedProducts;
 }
 
+function buildWhatsAppSingle(product) {
+  const message = `Hello, I want to order: ${product.name} (INR ${product.price})`;
+  const encoded = encodeURIComponent(message);
+  return `https://wa.me/${EMBO_CONFIG.whatsappNumber}?text=${encoded}`;
+}
+
 function renderProductCard(product, options = {}) {
   const card = document.createElement("div");
-  card.className = "card reveal";
+  card.className = "card product-card reveal";
   card.innerHTML = `
     <div class="media" style="background: ${resolveMedia(product)}"></div>
-    <h3>${product.name}</h3>
-    <p>${product.brand} • ${product.color} • ${product.size}</p>
-    <div class="price">${formatPrice(product.price)}</div>
-    <div class="actions">
-      <a class="button secondary" href="/product.html?id=${product.id}">View</a>
-      <button class="button primary" data-add-cart="${product.id}">Add to cart</button>
-      ${options.showWishlist ? `<button class="button secondary" data-add-wishlist="${product.id}">Wishlist</button>` : ""}
+    <div class="card-body">
+      <div class="brand">${product.brand}</div>
+      <h3>${product.name}</h3>
+      <div class="meta-row">
+        <span class="chip">${product.color}</span>
+        <span class="chip">${product.size}</span>
+        <span class="chip">${product.category}</span>
+      </div>
+      <div class="price-row">
+        <span class="price">${formatPrice(product.price)}</span>
+        <span class="rating">${product.rating} rating</span>
+      </div>
+      <div class="actions">
+        <a class="button ghost" href="/product.html?id=${product.id}">View</a>
+        <button class="button primary" data-add-cart="${product.id}">Add to cart</button>
+        ${options.showWishlist ? `<button class="button secondary" data-add-wishlist="${product.id}">Wishlist</button>` : ""}
+        <a class="button secondary" data-order="${product.id}" href="#">WhatsApp</a>
+      </div>
     </div>
   `;
 
@@ -64,6 +81,11 @@ function renderProductCard(product, options = {}) {
       }
     });
   }
+
+  card.querySelector("[data-order]").addEventListener("click", (event) => {
+    event.preventDefault();
+    window.open(buildWhatsAppSingle(product), "_blank");
+  });
 
   return card;
 }

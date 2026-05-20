@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <div class="promo-bar">
+      <div class="container">Fast delivery, direct WhatsApp orders</div>
+    </div>
     <header>
       <div class="container navbar">
         <a class="logo" href="/">EMBO</a>
-        <nav class="nav-links">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link active" href="/catalog.html">Catalog</a>
-          <a class="nav-link" href="/wishlist.html">Wishlist</a>
-          <a class="nav-link" href="/cart.html">Cart</a>
-          <a class="nav-link" href="/admin.html">Admin</a>
-        </nav>
+        <div class="nav-center">
+          <nav class="nav-links">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link active" href="/catalog.html">Catalog</a>
+            <a class="nav-link" href="/wishlist.html">Wishlist</a>
+            <a class="nav-link" href="/cart.html">Cart</a>
+            <a class="nav-link" href="/admin.html">Admin</a>
+          </nav>
+          <div class="search-bar">
+            <span>Search</span>
+            <input type="text" placeholder="Search styles, brands" />
+          </div>
+        </div>
         <div class="nav-actions">
           <a class="nav-link" href="/wishlist.html">Wishlist <span id="wishlist-count" class="badge">0</span></a>
           <a class="nav-link" href="/cart.html">Cart <span id="cart-count" class="badge">0</span></a>
@@ -29,6 +38,12 @@
         <div>
           <h1>Catalog</h1>
           <p>Filter by vibe, color, and price. Tap a product to order on WhatsApp.</p>
+          <div class="chip-list">
+            <span class="chip">Co-ord sets</span>
+            <span class="chip">Streetwear</span>
+            <span class="chip">Occasion</span>
+            <span class="chip">Active</span>
+          </div>
         </div>
         <div class="hero-card">
           <h3>Search and smart filters</h3>
@@ -94,6 +109,7 @@
 
       <section>
         <h2 class="section-title">Results</h2>
+        <p class="section-subtitle">Curated products with premium fit notes.</p>
         <div id="catalog-grid" class="grid"></div>
       </section>
     </main>
