@@ -329,14 +329,6 @@ header {
   font-size: 1.1rem;
 }
 
-.rating {
-  background: #fff2f0;
-  color: var(--primary-dark);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-family: "Futura", "Gill Sans", "Trebuchet MS", sans-serif;
-}
 
 .card h3 {
   margin: 6px 0 4px;
@@ -413,6 +405,10 @@ textarea {
   padding: 12px 14px;
   margin-bottom: 16px;
   font-size: 0.95rem;
+}
+
+.is-hidden {
+  display: none;
 }
 
 .footer {

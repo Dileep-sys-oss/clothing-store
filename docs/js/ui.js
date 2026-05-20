@@ -48,7 +48,6 @@ function renderProductCard(product, options = {}) {
       </div>
       <div class="price-row">
         <span class="price">${formatPrice(product.price)}</span>
-        <span class="rating">${product.rating} rating</span>
       </div>
       <div class="actions">
         <a class="button ghost" href="product.html?id=${product.id}">View</a>

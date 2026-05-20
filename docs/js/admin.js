@@ -5,6 +5,10 @@ const adminSave = document.getElementById("admin-save");
 const adminList = document.getElementById("admin-list");
 const adminExport = document.getElementById("admin-export");
 const adminImport = document.getElementById("admin-import");
+const adminLock = document.getElementById("admin-lock");
+const adminPanel = document.getElementById("admin-panel");
+const adminInventory = document.getElementById("admin-inventory");
+const adminStatus = document.getElementById("admin-status");
 
 let adminUnlocked = false;
 let productsCache = [];
@@ -27,6 +31,9 @@ function renderAdminList() {
 
   document.querySelectorAll("[data-edit]").forEach((button) => {
     button.addEventListener("click", () => {
+      if (!adminUnlocked) {
+        return;
+      }
       const product = productsCache.find((item) => item.id === Number(button.dataset.edit));
       if (!product) {
         return;
@@ -43,12 +50,21 @@ function renderAdminList() {
 
   document.querySelectorAll("[data-delete]").forEach((button) => {
     button.addEventListener("click", () => {
+      if (!adminUnlocked) {
+        return;
+      }
       const id = Number(button.dataset.delete);
       productsCache = productsCache.filter((item) => item.id !== id);
       setAdminProducts(productsCache);
       renderAdminList();
     });
   });
+}
+
+function setAdminVisibility(isUnlocked) {
+  adminPanel.classList.toggle("is-hidden", !isUnlocked);
+  adminInventory.classList.toggle("is-hidden", !isUnlocked);
+  adminLock.classList.toggle("is-hidden", isUnlocked);
 }
 
 async function loadAdmin() {
@@ -61,10 +77,11 @@ adminUnlock.addEventListener("click", () => {
   if (adminKeyInput.value === EMBO_CONFIG.adminKey) {
     adminUnlocked = true;
     adminKeyInput.value = "";
-    alert("Admin unlocked");
+    adminStatus.textContent = "Admin unlocked. You can edit products now.";
+    setAdminVisibility(true);
     loadAdmin();
   } else {
-    alert("Invalid admin key");
+    adminStatus.textContent = "Invalid admin key. Try again.";
   }
 });
 
@@ -78,7 +95,6 @@ adminSave.addEventListener("click", (event) => {
   const formData = new FormData(adminForm);
   const payload = Object.fromEntries(formData.entries());
   payload.price = Number(payload.price || 0);
-  payload.rating = Number(payload.rating || 0);
 
   const editId = Number(adminForm.dataset.editId || 0);
   if (editId) {
@@ -101,7 +117,7 @@ adminSave.addEventListener("click", (event) => {
 
 adminExport.addEventListener("click", () => {
   if (!adminUnlocked) {
-    alert("Unlock admin first");
+    adminStatus.textContent = "Unlock admin first.";
     return;
   }
   const blob = new Blob([JSON.stringify(productsCache, null, 2)], {
@@ -117,7 +133,7 @@ adminExport.addEventListener("click", () => {
 
 adminImport.addEventListener("change", async (event) => {
   if (!adminUnlocked) {
-    alert("Unlock admin first");
+    adminStatus.textContent = "Unlock admin first.";
     return;
   }
   const file = event.target.files[0];
@@ -129,3 +145,5 @@ adminImport.addEventListener("change", async (event) => {
   setAdminProducts(productsCache);
   renderAdminList();
 });
+
+setAdminVisibility(false);

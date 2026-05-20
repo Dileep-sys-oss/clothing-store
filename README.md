@@ -17,22 +17,22 @@ A static clothing site with catalog filters, cart, wishlist, and WhatsApp orderi
 
 ## Configure WhatsApp number
 
-Edit `whatsappNumber` in [public/js/config.js](public/js/config.js). Use digits only (no +).
+Edit `whatsappNumber` in [docs/js/config.js](docs/js/config.js). Use digits only (no +).
 
 ## Admin key
 
-Change `adminKey` in [public/js/config.js](public/js/config.js).
+Change `adminKey` in [docs/js/config.js](docs/js/config.js).
 
 ## Update products
 
 1. Open the Admin page and unlock with the admin key.
 2. Add or edit products.
 3. Click Export JSON to download a new products file.
-4. Replace [public/data/products.json](public/data/products.json) with the new file and push to GitHub Pages.
+4. Replace [docs/data/products.json](docs/data/products.json) with the new file and push to GitHub Pages.
 
 ## GitHub Pages launch (recommended)
 
-This repo is prepared with a [docs](docs) folder for GitHub Pages.
+This repo uses [docs](docs) as the only source for GitHub Pages.
 
 1. Push this repo to GitHub.
 2. In GitHub, go to Settings -> Pages.
@@ -42,9 +42,4 @@ This repo is prepared with a [docs](docs) folder for GitHub Pages.
 
 ## Deploy updates after edits
 
-Whenever you edit files in [public](public), re-copy them into [docs](docs) before pushing:
-
-```powershell
-New-Item -ItemType Directory -Path .\docs -Force | Out-Null
-Copy-Item -Path .\public\* -Destination .\docs -Recurse -Force
-```
+Edit files directly inside [docs](docs) and then push your changes.
